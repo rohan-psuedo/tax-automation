@@ -1,0 +1,52 @@
+[project]
+name = "tax-automaton"
+version = "0.1.0"
+description = "AI accounting data-entry automation: documents -> validated vouchers -> Tally"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "pydantic>=2.10",
+    "pydantic-settings>=2.6",
+    "sqlalchemy>=2.0.36",
+    "alembic>=1.14",
+    "httpx>=0.28",
+    "argon2-cffi>=23.1",
+    "pyjwt>=2.10",
+    "defusedxml>=0.7",
+    "python-multipart>=0.0.18",
+    "pymupdf>=1.28.2",
+    "pillow>=12.3.0",
+    "python-docx>=1.2.0",
+    "openpyxl>=3.1.5",
+    "anthropic>=1.11.0",
+    "rapidfuzz>=3.14.6",
+    "cryptography>=50.0.2",
+    "google-genai>=2.28.0",
+    "openai>=3.24.0",
+]
+
+[project.optional-dependencies]
+postgres = ["psycopg[binary]>=3.2"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "ruff>=0.8",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+extend-exclude = ["alembic/versions"]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["B008"]  # FastAPI Depends() in defaults
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["E501"]  # long XML fixtures

@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Backend runtime data (database, uploaded documents, secret key)
+backend/data/
+backend/.env
+
+# Node / Next.js
+node_modules/
+web/.next/
+web/out/
+web/next-env.d.ts
+*.tsbuildinfo
+.env*.local
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Secrets anywhere (the .env.example templates are kept)
+.env
+
+# Local tool state
+.omc/
+.claude/settings.local.json

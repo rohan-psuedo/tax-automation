@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+/* Ledger-book palette: cool green-grey paper, slate ink, ledger green, red ink. */
+:root {
+  --paper: #f5f8f7;
+  --sheet: #ffffff;
+  --ink: #1c2b30;
+  --ink-soft: #52646a;
+  --rule: #d6e0dc;
+  --rule-strong: #b9c8c2;
+  --ledger: #0e6b5c;
+  --ledger-tint: #e3f1ed;
+  --red-ink: #b42330;
+  --red-tint: #fbeaec;
+  --amber: #a8650f;
+  --amber-tint: #fbf1e1;
+  --bar: #163b36;
+  --bar-ink: #d9ece6;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-sheet: var(--sheet);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-ledger: var(--ledger);
+  --color-ledger-tint: var(--ledger-tint);
+  --color-red-ink: var(--red-ink);
+  --color-red-tint: var(--red-tint);
+  --color-amber: var(--amber);
+  --color-amber-tint: var(--amber-tint);
+  --color-bar: var(--bar);
+  --color-bar-ink: var(--bar-ink);
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-plex-sans), system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ledger);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
